@@ -6,13 +6,13 @@ Write things specifically related to your project.
 
 This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for internal logic.
 
-This repository derives from `cunarist/flutter-rust-template` on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready.
+This repository derives from `cunarist/app-template` on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready.
 
 ## Platform Support
 
-Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, `cunarist/flutter-rust-template` is not yet mature enough to support all of those, though it has enough potential to do so in the future.
+Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, `cunarist/app-template` is not yet mature enough to support all of those, though it has enough potential to do so in the future.
 
-Currently supported platforms in `cunarist/flutter-rust-template` are:
+Currently supported platforms in `cunarist/app-template` are:
 
 - Windows
 
@@ -22,7 +22,7 @@ Flutter and Rust are required for building the app itself.
 
 Python should also be installed on your system to automate complicated procedures. Dotenv is needed for loading environment variables declared in `.env` consistently into terminal regardless of operating system.
 
-You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities. Above all, automation scripts in `cunarist/flutter-rust-template` only support Visual Studio Code.
+You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities. Above all, automation scripts in `cunarist/app-template` only support Visual Studio Code.
 
 Git is required for version control.
 
@@ -75,7 +75,7 @@ All of these assume that your terminal's working directory is set to the project
 
 ### Setting up the Repository
 
-These won't be used very often. You will only need these in order to make `cunarist/flutter-rust-template` work properly at first.
+These won't be used very often. You will only need these in order to make `cunarist/app-template` work properly at first.
 
 Download external source files described in `.external_zip_url` to `./.external`.
 
@@ -142,7 +142,7 @@ These are the top-level files and folders that are freely allowed to edit during
 - `README.md`: Various descriptions. Do not remove `Flutter-Rust Template` paragraph if possible.
 - `native`: Rust crates.
 - `lib`: Dart modules for Flutter.
-- `.pubspec.yaml`: Flutter settings and dependencies. Do not remove dependencies with `flutter-rust-template` comment.
+- `.pubspec.yaml`: Flutter settings and dependencies. Do not remove dependencies with `app-template` comment.
 - `.env`: Environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
 - `.external_zip_url`: URLs of external libraries that should be downloaded through an automated Python script.
 
@@ -154,13 +154,13 @@ If the characteristic of a Rust API is totally different from others, it should 
 
 ### Python Automation Scripts
 
-Due to limitations of dependencies and tools, `cunarist/flutter-rust-template` relies heavily on Python scripts in `./automate` for automation. Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
+Due to limitations of dependencies and tools, `cunarist/app-template` relies heavily on Python scripts in `./automate` for automation. Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
 
 Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `## type: ignore` to suppress the warning.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
 
-Third-party Python packages shouldn't be used. The point of `cunarist/flutter-rust-template` is an building an app with Flutter and Rust.
+Third-party Python packages shouldn't be used. The point of `cunarist/app-template` is an building an app with Flutter and Rust.
 
 ## Folder Structure
 
@@ -174,7 +174,7 @@ Most of the top-level folders comes from default Flutter template.
 - `web`: Platform-specific files
 - `lib`: Dart modules empowering the Flutter application.
 
-However, there are some extra folders created in `cunarist/flutter-rust-template` in order to integrate other elements into development.
+However, there are some extra folders created in `cunarist/app-template` in order to integrate other elements into development.
 
 - `automate`: Python scripts for automating development process. These scripts have nothing to do with actual build and doesn't get included in the app release. Only for developers.
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
