@@ -142,7 +142,7 @@ These are the top-level files and folders that are freely allowed to edit during
 - `README.md`: Various descriptions. Do not remove `Flutter-Rust Template` paragraph if possible.
 - `native`: Rust crates.
 - `lib`: Dart modules for Flutter.
-- `.pubspec.yaml`: Flutter settings and dependencies. Do not remove dependencies with `app-template` comment.
+- `pubspec.yaml`: Flutter settings and dependencies. Do not remove dependencies with `app-template` comment.
 - `.env`: Environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
 - `.external_zip_url`: URLs of external libraries that should be downloaded through an automated Python script.
 
