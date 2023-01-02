@@ -2,7 +2,7 @@
 
 Write things specifically related to your project.
 
-# Flutter-Rust Template
+# Structure
 
 This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for internal logic.
 
