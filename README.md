@@ -4,8 +4,6 @@ This software is a combination of Flutter and Rust. Flutter is used to build cro
 
 This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
 
-This repository currently has Cunarist App Template version 20230103.
-
 # Platform Support
 
 Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
@@ -168,7 +166,7 @@ However, there are some extra folders created in Cunarist App Template in order 
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
 - `static`: A place for static files which are not executed or compiled directly.
 
-There are also temporary folders related to the build process. These should not be version-controlled
+There are also temporary folders related to the build process. These should not be version-controlled.
 
 - `build`: Where the final executable is saved.
 - `.external`: Where external sources go into. Inside can be a C or C++ library which will be dealt with FFI, Dart library, or any third-party source that eventually gets compiled but cannot be included in the project simply with `pubspec.yaml` or `Cargo.toml`. If an external source should be added, don't forget to enable automatic download by modifying `.external_zip_url`.
