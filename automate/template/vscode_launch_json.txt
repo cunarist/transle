@@ -4,21 +4,22 @@
       "name": "Debug mode",
       "request": "launch",
       "type": "dart",
+      "flutterMode": "debug",
       "env": [[ENV]]
     },
     {
       "name": "Profile mode",
       "request": "launch",
       "type": "dart",
-      "env": [[ENV]],
-      "flutterMode": "profile"
+      "flutterMode": "profile",
+      "env": [[ENV]]
     },
     {
       "name": "Release mode",
       "request": "launch",
       "type": "dart",
-      "env": [[ENV]],
-      "flutterMode": "release"
+      "flutterMode": "release",
+      "env": [[ENV]]
     }
   ]
 }
