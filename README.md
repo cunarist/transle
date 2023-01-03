@@ -168,7 +168,7 @@ However, there are some extra folders created in Cunarist App Template in order 
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
 - `static`: A place for static files which are not executed or compiled directly.
 
-There are also temporary folders related to the build process. These should not be included in Git repository.
+There are also temporary folders related to the build process. These should not be version-controlled
 
 - `build`: Where the final executable is saved.
 - `.external`: Where external sources go into. Inside can be a C or C++ library which will be dealt with FFI, Dart library, or any third-party source that eventually gets compiled but cannot be included in the project simply with `pubspec.yaml` or `Cargo.toml`. If an external source should be added, don't forget to enable automatic download by modifying `.external_zip_url`.
