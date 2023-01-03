@@ -86,6 +86,12 @@ Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/
 flutter pub get
 ```
 
+Convert product icon in `./static` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+
+```
+flutter pub run flutter_launcher_icons
+```
+
 Check if Rust crates in `./native` have any compilation error.
 
 ```
