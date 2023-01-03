@@ -104,6 +104,8 @@ Run the app in debug mode.
 python ./automate/load_env.py flutter run
 ```
 
+> Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
+
 Build the app in release mode.
 
 ```
