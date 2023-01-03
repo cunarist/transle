@@ -43,7 +43,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Flutter-Rust Template
+# Cunarist App Template
 /native/target
 /.external
 /.vscode
