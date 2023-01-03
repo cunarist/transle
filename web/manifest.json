@@ -1,6 +1,6 @@
 {
-    "name": "someappname",
-    "short_name": "someappname",
+    "name": "transle",
+    "short_name": "transle",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

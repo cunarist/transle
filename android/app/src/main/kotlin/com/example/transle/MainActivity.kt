@@ -1,4 +1,4 @@
-package com.example.someappname
+package com.cunarist.transle
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "someappname" "\0"
+            VALUE "CompanyName", "com.cunarist" "\0"
+            VALUE "FileDescription", "transle" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "someappname" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "someappname.exe" "\0"
-            VALUE "ProductName", "someappname" "\0"
+            VALUE "InternalName", "transle" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.cunarist. All rights reserved." "\0"
+            VALUE "OriginalFilename", "transle.exe" "\0"
+            VALUE "ProductName", "transle" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

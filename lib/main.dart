@@ -7,7 +7,7 @@ import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
 import 'dart:io';
 
-const appTitle = 'SomeAppName';
+const appTitle = 'Transle';
 const primaryColor = Color.fromARGB(255, 0, 156, 122);
 const secondaryColor = Color.fromARGB(255, 0, 239, 187);
 const minimumSize = Size(400, 400);

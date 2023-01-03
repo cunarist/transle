@@ -46,13 +46,13 @@ static void my_application_activate(GApplication *application)
   {
     GtkHeaderBar *header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
     gtk_widget_show(GTK_WIDGET(header_bar));
-    gtk_header_bar_set_title(header_bar, "someappname");
+    gtk_header_bar_set_title(header_bar, "transle");
     gtk_header_bar_set_show_close_button(header_bar, TRUE);
     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
   }
   else
   {
-    gtk_window_set_title(window, "someappname");
+    gtk_window_set_title(window, "transle");
   }
 
   auto bdw = bitsdojo_window_from(window);
