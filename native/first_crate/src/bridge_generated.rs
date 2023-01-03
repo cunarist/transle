@@ -21,7 +21,7 @@ use std::sync::Arc;
 
 // Section: wire functions
 
-fn wire_add_one_impl(port_: MessagePort, original: impl Wire2Api<i32> + UnwindSafe) {
+fn wire_add_one_impl(port_: MessagePort, before: impl Wire2Api<i32> + UnwindSafe) {
     FLUTTER_RUST_BRIDGE_HANDLER.wrap(
         WrapInfo {
             debug_name: "add_one",
@@ -29,8 +29,8 @@ fn wire_add_one_impl(port_: MessagePort, original: impl Wire2Api<i32> + UnwindSa
             mode: FfiCallMode::Normal,
         },
         move || {
-            let api_original = original.wire2api();
-            move |task_callback| Ok(add_one(api_original))
+            let api_before = before.wire2api();
+            move |task_callback| Ok(add_one(api_before))
         },
     )
 }

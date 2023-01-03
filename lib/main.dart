@@ -78,9 +78,9 @@ class MyHomePage extends StatelessWidget {
         onPressed: () {
           context.read<MyAppState>().setState((MyAppState s) async {
             int original = s.tester.counterValue;
-            int calculated;
-            calculated = await first_crate.api.addOne(original: original);
-            calculated = await second_crate.api.multiplyTwo(original: original);
+            int calculated = original;
+            calculated = await second_crate.api.multiplyTwo(before: calculated);
+            calculated = await first_crate.api.addOne(before: calculated);
             s.tester.counterValue = calculated;
           });
         },

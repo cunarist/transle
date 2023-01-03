@@ -11,7 +11,7 @@ import 'package:meta/meta.dart';
 import 'dart:ffi' as ffi;
 
 abstract class FirstCrate {
-  Future<int> addOne({required int original, dynamic hint});
+  Future<int> addOne({required int before, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kAddOneConstMeta;
 }
@@ -25,13 +25,13 @@ class FirstCrateImpl implements FirstCrate {
   factory FirstCrateImpl.wasm(FutureOr<WasmModule> module) =>
       FirstCrateImpl(module as ExternalLibrary);
   FirstCrateImpl.raw(this._platform);
-  Future<int> addOne({required int original, dynamic hint}) {
-    var arg0 = api2wire_i32(original);
+  Future<int> addOne({required int before, dynamic hint}) {
+    var arg0 = api2wire_i32(before);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner.wire_add_one(port_, arg0),
       parseSuccessData: _wire2api_i32,
       constMeta: kAddOneConstMeta,
-      argValues: [original],
+      argValues: [before],
       hint: hint,
     ));
   }
@@ -39,7 +39,7 @@ class FirstCrateImpl implements FirstCrate {
   FlutterRustBridgeTaskConstMeta get kAddOneConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "add_one",
-        argNames: ["original"],
+        argNames: ["before"],
       );
 
   void dispose() {
@@ -168,11 +168,11 @@ class FirstCrateWire implements FlutterRustBridgeWireBase {
 
   void wire_add_one(
     int port_,
-    int original,
+    int before,
   ) {
     return _wire_add_one(
       port_,
-      original,
+      before,
     );
   }
 

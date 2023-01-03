@@ -11,7 +11,7 @@ import 'package:meta/meta.dart';
 import 'dart:ffi' as ffi;
 
 abstract class SecondCrate {
-  Future<int> multiplyTwo({required int original, dynamic hint});
+  Future<int> multiplyTwo({required int before, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kMultiplyTwoConstMeta;
 }
@@ -25,13 +25,13 @@ class SecondCrateImpl implements SecondCrate {
   factory SecondCrateImpl.wasm(FutureOr<WasmModule> module) =>
       SecondCrateImpl(module as ExternalLibrary);
   SecondCrateImpl.raw(this._platform);
-  Future<int> multiplyTwo({required int original, dynamic hint}) {
-    var arg0 = api2wire_i32(original);
+  Future<int> multiplyTwo({required int before, dynamic hint}) {
+    var arg0 = api2wire_i32(before);
     return _platform.executeNormal(FlutterRustBridgeTask(
       callFfi: (port_) => _platform.inner.wire_multiply_two(port_, arg0),
       parseSuccessData: _wire2api_i32,
       constMeta: kMultiplyTwoConstMeta,
-      argValues: [original],
+      argValues: [before],
       hint: hint,
     ));
   }
@@ -39,7 +39,7 @@ class SecondCrateImpl implements SecondCrate {
   FlutterRustBridgeTaskConstMeta get kMultiplyTwoConstMeta =>
       const FlutterRustBridgeTaskConstMeta(
         debugName: "multiply_two",
-        argNames: ["original"],
+        argNames: ["before"],
       );
 
   void dispose() {
@@ -168,11 +168,11 @@ class SecondCrateWire implements FlutterRustBridgeWireBase {
 
   void wire_multiply_two(
     int port_,
-    int original,
+    int before,
   ) {
     return _wire_multiply_two(
       port_,
-      original,
+      before,
     );
   }
 
