@@ -18,13 +18,9 @@ Currently supported platforms in `cunarist/app-template` are:
 
 ## System Preparation
 
-Flutter and Rust are required for building the app itself.
-
-Python should also be installed on your system to automate complicated procedures. Dotenv is needed for loading environment variables declared in `.env` consistently into terminal regardless of operating system.
+Flutter and Rust are required for building the app itself. Git and Python should be installed on your system to automate complicated procedures.
 
 You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities. Above all, automation scripts in `cunarist/app-template` only support Visual Studio Code.
-
-Git is required for version control.
 
 ### Preparing Git
 
@@ -33,10 +29,6 @@ Go to the [official downloads page](https://git-scm.com/downloads)
 ### Preparing Python
 
 Go to the [official downloads page](https://www.python.org/downloads/) if your system doesn't provide a pre-installed version. Make sure Python installation is incldued in `PATH` environment variable.
-
-### Preparing Dotenv
-
-Refer to the [installation guide](https://webinstall.dev/dotenv/).
 
 ### Preparing Rust
 
@@ -58,7 +50,6 @@ You can make sure if your system is ready for development in the terminal.
 ```
 git --version
 python --version
-dotenv --version
 rustc --version
 flutter doctor
 ```
@@ -108,25 +99,25 @@ These commands are going to be used quite often.
 Check if Rust crates in `./native` have any compilation error.
 
 ```
-dotenv -f .env -- cargo check --manifest-path ./native/Cargo.toml
+python ./automate/load_env.py cargo check --manifest-path ./native/Cargo.toml
 ```
 
 Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
 
 ```
-dotenv -f .env -- python ./automate/generate_bridge.py
+python ./automate/generate_bridge.py
 ```
 
 Run the app in debug mode.
 
 ```
-dotenv -f .env -- flutter run
+python ./automate/load_env.py flutter run
 ```
 
 Build the app in release mode.
 
 ```
-dotenv -f .env -- flutter build
+python ./automate/load_env.py flutter build
 ```
 
 ## Rules

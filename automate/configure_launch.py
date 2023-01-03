@@ -6,7 +6,6 @@ filepath = ".env"
 with open(filepath, mode="r", encoding="utf8") as file:
     items = file.readlines()
 items = [x.strip().split("=", 1) for x in items if "=" in x]
-items = [[x, json.loads(y)] for [x, y] in items]
 block_text = json.dumps(dict(items))
 
 filepath = "./automate/template/vscode_launch_json.txt"
