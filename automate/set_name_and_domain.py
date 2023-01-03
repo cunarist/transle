@@ -29,3 +29,5 @@ for path, subdirs, files in os.walk("./"):
                     file.write(modified)
         except UnicodeDecodeError:
             pass
+
+print("\nDone! Don't forget to update description in pubspec.yaml file as well.\n")
