@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'app_state.dart';
 import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
+import 'dart:io';
 
 const appTitle = 'SomeAppName';
 const primaryColor = Color.fromARGB(255, 0, 156, 122);
@@ -12,6 +14,11 @@ const minimumSize = Size(400, 400);
 const initialSize = Size(600, 600);
 
 void main() {
+  if (kDebugMode) {
+    Map<String, String> env = Platform.environment;
+    env.forEach((k, v) => debugPrint("Key=$k Value=$v"));
+  }
+
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
