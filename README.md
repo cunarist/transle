@@ -1,6 +1,6 @@
-# Structure
+# Project Structure
 
-This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for internal logic.
+This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for the internal logic.
 
 This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
 
@@ -62,9 +62,11 @@ After your system is ready, you will need to install dependencies for Flutter-Ru
 
 All of these assume that your terminal's working directory is set to the project's root folder.
 
-## Setting up the Repository
+Set the app name and domain.
 
-These won't be used very often. You will only need these in order to make Cunarist App Template work properly at first.
+```
+python ./automate/set_name_and_domain.py
+```
 
 Download external source files described in `.external_zip_url` to `./.external`.
 
@@ -83,16 +85,6 @@ Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/
 ```
 flutter pub get
 ```
-
-Convert product icon in `./static` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
-
-```
-flutter pub run flutter_launcher_icons
-```
-
-## Actual Development
-
-These commands are going to be used quite often.
 
 Check if Rust crates in `./native` have any compilation error.
 
@@ -126,7 +118,7 @@ Be careful all the time! You should not cross the line to reach somewhere sensit
 
 You shouldn't be editing any file without enough knowledge on how it works.
 
-These are the top-level files and folders that are freely allowed to edit during app development:
+These are the top-level files and folders that are allowed to edit during app development:
 
 - `native`: Rust crates.
 - `lib`: Dart modules for Flutter.
