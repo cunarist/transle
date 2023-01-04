@@ -11,7 +11,7 @@ if confirm != "y":
     sys.exit()
 
 # Set the app name
-lowercase_app_name = app_name.lower().replace(" ","")
+lowercase_app_name = app_name.lower().replace(" ", "")
 for path, subdirs, files in os.walk("./"):
     for name in files:
         if ".py" in name:
@@ -22,7 +22,7 @@ for path, subdirs, files in os.walk("./"):
                 content = file.read()
             modified = content
             modified = modified.replace("someappname", lowercase_app_name)
-            modified = modified.replace("SomeAppName", app_name)
+            modified = modified.replace("Some App Name", app_name)
             modified = modified.replace("com.example", domain)
             if modified != content:
                 with open(filepath, mode="w", encoding="utf8") as file:
