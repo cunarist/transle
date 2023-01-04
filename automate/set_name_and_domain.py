@@ -2,7 +2,7 @@ import os
 import sys
 
 # Qusestion
-app_name = input("\nEnter the app name. For example, 'MyApp'.\n")
+app_name = input("\nEnter the app name. For example, 'My App'.\n")
 domain = input("\nEnter domain name. For example, 'com.mycompany'.\n")
 confirm = input("\nAre you sure? You cannot change this later. (y/n)\n")
 
@@ -11,7 +11,7 @@ if confirm != "y":
     sys.exit()
 
 # Set the app name
-lowercase_app_name = app_name.lower()
+lowercase_app_name = app_name.lower().replace(" ","")
 for path, subdirs, files in os.walk("./"):
     for name in files:
         if ".py" in name:
