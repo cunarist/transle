@@ -16,7 +16,7 @@ Currently supported platforms in Cunarist App Template are:
 
 Flutter and Rust are required for building the app itself. Git and Python should be installed on your system to automate complicated procedures.
 
-You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities. Above all, automation scripts in Cunarist App Template only support Visual Studio Code.
+You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
 
 ## Preparing Git
 
@@ -77,6 +77,8 @@ Make your debug tools work as expected with proper environment variables from `.
 ```
 python ./automate/configure_launch.py
 ```
+
+> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel.
 
 Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
@@ -164,7 +166,7 @@ However, there are some extra folders created in Cunarist App Template in order 
 
 - `automate`: Python scripts for automating development process. These scripts have nothing to do with actual build and doesn't get included in the app release. Only for developers.
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
-- `static`: A place for static files which are not executed or compiled directly.
+- `asset`: A place for asset files such as images.
 
 There are also temporary folders related to the build process. These should not be version-controlled.
 
