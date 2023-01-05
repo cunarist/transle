@@ -86,7 +86,7 @@ Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/
 flutter pub get
 ```
 
-Convert product icon in `./static` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+Convert product icon in `./asset` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
 
 ```
 flutter pub run flutter_launcher_icons
@@ -166,7 +166,7 @@ However, there are some extra folders created in Cunarist App Template in order 
 
 - `automate`: Python scripts for automating development process. These scripts have nothing to do with actual build and doesn't get included in the app release. Only for developers.
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
-- `static`: A place for static files which are not executed or compiled directly.
+- `asset`: A place for asset files such as images.
 
 There are also temporary folders related to the build process. These should not be version-controlled.
 
