@@ -16,7 +16,7 @@ Currently supported platforms in Cunarist App Template are:
 
 Flutter and Rust are required for building the app itself. Git and Python should be installed on your system to automate complicated procedures.
 
-You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities. Above all, automation scripts in Cunarist App Template only support Visual Studio Code.
+You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
 
 ## Preparing Git
 
@@ -77,6 +77,8 @@ Make your debug tools work as expected with proper environment variables from `.
 ```
 python ./automate/configure_launch.py
 ```
+
+> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel.
 
 Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
