@@ -131,8 +131,7 @@ These are the top-level files and folders that are allowed to edit during app de
 - `native`: Rust crates.
 - `lib`: Dart modules for Flutter.
 - `pubspec.yaml`: Flutter settings and dependencies.
-- `.env`: Environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
-- `.external_zip_url`: URLs of external libraries that should be downloaded through an automated Python script.
+- `.env.template`: Template of `.env` file. Includes environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
 
 ## Division of Functions
 
