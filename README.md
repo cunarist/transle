@@ -56,6 +56,12 @@ Flutter-Rust Bridge is a code generator for communication between Flutter and Ru
 
 After your system is ready, you will need to install dependencies for Flutter-Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
 
+# Environment Variables
+
+Before you proceed, manually create `.env` file by copying `.env.template` file. `.env` file is not version-controlled.
+
+Normally, you would need to set up your IDE and compilers to load environment variables that are needed. However, Cunarist App Template provides convenient scripts to deal with environment variables written in `.env` file. The reason why `.env` file is not included in Cunarist App Template by default is because proper values of environment variables might differ between developing environments.
+
 # Command Line Scripts
 
 All of these assume that your terminal's working directory is set to the project's root folder.
