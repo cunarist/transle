@@ -72,19 +72,13 @@ Set the app name and domain.
 python ./automate/set_name_and_domain.py
 ```
 
-Download external source files described in `.external_zip_url` to `./.external`.
-
-```
-python ./automate/download_external_source.py
-```
-
 Make your debug tools work as expected with proper environment variables from `.env`.
 
 ```
 python ./automate/configure_launch.py
 ```
 
-> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel.
+> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel. Other IDEs are not supported.
 
 Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
