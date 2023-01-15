@@ -44,6 +44,7 @@ app.*.map.json
 /android/app/release
 
 # Cunarist App Template
+.env
 /native/target
 /.external
 /.vscode
