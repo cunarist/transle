@@ -14,13 +14,9 @@ Currently supported platforms in Cunarist App Template are:
 
 # System Preparation
 
-Flutter and Rust are required for building the app itself. Git and Python should be installed on your system to automate complicated procedures.
+Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures.
 
 You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
-
-## Preparing Git
-
-Go to the [official downloads page](https://git-scm.com/downloads)
 
 ## Preparing Python
 
@@ -44,7 +40,6 @@ There are also many useful official resources to read:
 You can make sure if your system is ready for development in the terminal.
 
 ```
-git --version
 python --version
 rustc --version
 flutter doctor
