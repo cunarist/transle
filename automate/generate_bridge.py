@@ -39,25 +39,3 @@ for crate_name in crate_names:
     command += f" -r ./native/{crate_name}/src/api.rs"
     command += f" -d ./lib/bridge/{crate_name}/bridge_generated.dart"
     os.system(command)
-
-# Generate CMake files
-print("")
-filepath = "./automate/template/cmake.txt"
-with open(filepath, mode="r", encoding="utf8") as file:
-    template_text = file.read()
-
-block_text = ""
-for crate_name in crate_names:
-    block_text += f'set(CRATE_NAME "{crate_name}")'
-    block_text += "\n"
-    block_text += "target_link_libraries(${BINARY_NAME} PRIVATE ${CRATE_NAME})"
-    block_text += "\n"
-    block_text += "list(APPEND PLUGIN_BUNDLED_LIBRARIES"
-    block_text += " $<TARGET_FILE:${CRATE_NAME}-shared>)"
-    block_text += "\n"
-output_text = template_text.replace("[[LINK]]", block_text)
-
-filepaths = ["./windows/rust.cmake", "./linux/rust.cmake"]
-for filepath in filepaths:
-    with open(filepath, mode="w", encoding="utf8") as file:
-        file.write(output_text)
