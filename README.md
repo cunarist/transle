@@ -70,11 +70,11 @@ python ./automate/set_name_and_domain.py
 
 Make your debug tools work as expected with proper environment variables from `.env`.
 
+> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel. Other IDEs are not supported.
+
 ```
 python ./automate/configure_launch.py
 ```
-
-> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel. Other IDEs are not supported.
 
 Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
@@ -96,17 +96,19 @@ python ./automate/load_env.py cargo check --manifest-path ./native/Cargo.toml
 
 Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
 
+> This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
+
 ```
 python ./automate/generate_bridge.py
 ```
 
 Run the app in debug mode.
 
+> Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
+
 ```
 python ./automate/load_env.py flutter run
 ```
-
-> Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
 
 Build the app in release mode.
 
