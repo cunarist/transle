@@ -45,7 +45,7 @@ app.*.map.json
 
 # Cunarist App Template
 .env
-/native/target
-/.vscode
+native/target/
+.vscode/
 lib/bridge/
 native/*/src/bridge_generated.*
