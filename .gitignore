@@ -47,3 +47,5 @@ app.*.map.json
 .env
 /native/target
 /.vscode
+lib/bridge/
+native/*/src/bridge_generated.*
