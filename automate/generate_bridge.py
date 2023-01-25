@@ -42,7 +42,7 @@ for crate_name in crate_names:
 
 # Generate CMake files
 print("")
-filepath = "./automate/template/windows_rust_cmake.txt"
+filepath = "./automate/template/cmake.txt"
 with open(filepath, mode="r", encoding="utf8") as file:
     template_text = file.read()
 
@@ -57,6 +57,7 @@ for crate_name in crate_names:
     block_text += "\n"
 output_text = template_text.replace("[[LINK]]", block_text)
 
-filepath = f"./windows/rust.cmake"
-with open(filepath, mode="w", encoding="utf8") as file:
-    file.write(output_text)
+filepaths = ["./windows/rust.cmake", "./linux/rust.cmake"]
+for filepath in filepaths:
+    with open(filepath, mode="w", encoding="utf8") as file:
+        file.write(output_text)

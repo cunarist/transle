@@ -11,6 +11,7 @@ Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android,
 Currently supported platforms in Cunarist App Template are:
 
 - Windows
+- Linux
 
 # System Preparation
 
