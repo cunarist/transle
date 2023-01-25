@@ -126,7 +126,7 @@ You shouldn't be editing any file without enough knowledge on how it works.
 
 These are the top-level files and folders that are allowed to edit during app development:
 
-- `native`: Rust crates.
+- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name.
 - `lib`: Dart modules for Flutter.
 - `pubspec.yaml`: Flutter settings and dependencies.
 - `.env.template`: Template of `.env` file. Includes environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
