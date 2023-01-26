@@ -70,6 +70,16 @@ class MyApp extends StatelessWidget {
       }
     }
 
+    ThemeMode themeMode = ThemeMode.system;
+    switch (dotenv.env["DARK_MODE"]) {
+      case "true":
+        themeMode = ThemeMode.dark;
+        break;
+      case "false":
+        themeMode = ThemeMode.light;
+        break;
+    }
+
     return MaterialApp(
       title: appTitle,
       theme: ThemeData(
@@ -84,6 +94,7 @@ class MyApp extends StatelessWidget {
           secondary: secondaryColor,
         ),
       ),
+      themeMode: themeMode,
       home: const MyHomePage(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
