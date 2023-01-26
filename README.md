@@ -67,14 +67,6 @@ Normally, you would need to set up your IDE and compilers to load environment va
 
 `.env` file is only used in production and not included in the final release.
 
-# Localization
-
-Always write user interface texts in `./assets/translations`.
-
-When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivival task. Therefore it is a must to write texts that will be presented to normal users in translation files.
-
-Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
-
 # Command Line Scripts
 
 All of these assume that your terminal's working directory is set to the project's root folder. You might need to dive into this section quite often.
@@ -158,13 +150,23 @@ If the characteristic of a specific Rust API is totally different from other Rus
 
 ## Python Automation Scripts
 
-Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation. Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
+Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation.
+
+Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
 
 Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `# type: ignore` to suppress the warning.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
 
 Third-party Python packages shouldn't be used. The point of Cunarist App Template is an building an app with Flutter and Rust.
+
+## User Interface Texts
+
+Always write user interface texts in `./assets/translations`.
+
+When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivival task. Therefore it is a must to write texts that will be presented to normal users in translation files.
+
+Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
 
 # Folder Structure
 
