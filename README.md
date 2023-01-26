@@ -113,8 +113,6 @@ python ./automate/generate_bridge.py
 
 Run the app in debug mode.
 
-> Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
-
 ```
 flutter run
 ```
