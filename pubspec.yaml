@@ -30,6 +30,8 @@ dependencies:
   ffi: ^2.0.1
   provider: ^6.0.0
   meta: ^1.8.0
+  easy_localization: ^3.0.1
+  easy_localization_loader: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +44,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/translations/
 
 flutter_icons:
   image_path: "assets/app_icon.png"

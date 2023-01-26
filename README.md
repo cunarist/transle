@@ -58,6 +58,14 @@ Before you proceed, manually create `.env` file by copying `.env.template` file.
 
 Normally, you would need to set up your IDE and compilers to load environment variables that are needed. However, Cunarist App Template provides convenient scripts to deal with environment variables written in `.env` file. The reason why `.env` file is not included in Cunarist App Template by default is because proper values of environment variables might differ between developing environments.
 
+# Localization
+
+Always write user interface texts in `./assets/translations`.
+
+When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivival task. Therefore it is a must to write texts that will be presented to normal users in translation files.
+
+Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
+
 # Command Line Scripts
 
 All of these assume that your terminal's working directory is set to the project's root folder. You might need to dive into this section quite often.

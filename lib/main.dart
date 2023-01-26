@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization_loader/easy_localization_loader.dart';
 import 'app_state.dart';
 import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
@@ -13,23 +15,28 @@ const secondaryColor = Color.fromARGB(255, 0, 239, 187);
 const minimumSize = Size(400, 400);
 const initialSize = Size(600, 600);
 
-void main() {
-  if (kDebugMode) {
-    Map<String, String> env = Platform.environment;
-    env.forEach((k, v) => debugPrint("Key=$k Value=$v"));
-  }
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
   runApp(
     ChangeNotifierProvider(
       create: (context) => MyAppState(),
-      child: const MyApp(),
+      child: EasyLocalization(
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ko'),
+        ],
+        path: 'assets/translations',
+        assetLoader: YamlAssetLoader(),
+        fallbackLocale: const Locale('en'),
+        child: const MyApp(),
+      ),
     ),
   );
 
   doWhenWindowReady(() {
-    appWindow.title = appTitle;
+    appWindow.title = "Some App Name";
     appWindow.minSize = minimumSize;
     appWindow.size = initialSize;
     appWindow.alignment = Alignment.center;
@@ -42,6 +49,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      Map<String, String> env = Platform.environment;
+      env.forEach((k, v) => debugPrint("ENV $k $v"));
+      if (env.containsKey("DEBUG_LOCALE")) {
+        String debugLocale = env["DEBUG_LOCALE"] ?? "en";
+        context.setLocale(Locale(debugLocale));
+      }
+    }
+
     return MaterialApp(
       title: appTitle,
       theme: ThemeData(
@@ -57,6 +73,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const MyHomePage(),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
     );
   }
 }
@@ -71,12 +90,11 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Current value is '),
             Consumer<MyAppState>(
-              builder: (context, appState, child) => Text(
-                '${appState.tester.counterValue}',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+              builder: (context, appState, child) =>
+                  const Text("counter.informationText").tr(namedArgs: {
+                "theValue": appState.tester.counterValue.toString()
+              }),
             ),
           ],
         ),
