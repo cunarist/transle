@@ -32,12 +32,12 @@ void main() async {
       create: (context) => MyAppState(),
       child: EasyLocalization(
         supportedLocales: const [
-          Locale('en-US'),
-          Locale('ko-KR'),
+          Locale('en', 'US'),
+          Locale('ko', 'KR'),
         ],
         path: 'assets/translations',
         assetLoader: YamlAssetLoader(),
-        fallbackLocale: const Locale('en-US'),
+        fallbackLocale: const Locale('en', 'US'),
         child: const MyApp(),
       ),
     ),
@@ -61,16 +61,15 @@ class MyApp extends StatelessWidget {
 
     assert(() {
       // assert statement gets removed in release mode
-      String? debugLocale = dotenv.env["DEBUG_LOCALE"];
+      String debugLocale = dotenv.env["DEBUG_LOCALE"] ?? "";
       switch (debugLocale) {
-        case null:
-          break;
         case "":
           break;
         default:
-          context.setLocale(Locale(debugLocale ?? ""));
+          List splitted = debugLocale.split("-");
+          context.setLocale(Locale(splitted[0], splitted[1]));
       }
-      String? darkMode = dotenv.env["DARK_MODE"];
+      String darkMode = dotenv.env["DARK_MODE"] ?? "";
       switch (darkMode) {
         case "true":
           themeMode = ThemeMode.dark;
