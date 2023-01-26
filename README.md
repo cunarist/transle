@@ -7,7 +7,7 @@ This repository is a fork of `cunarist/app-template` repository on GitHub, which
 Extra features from this template that are not included in original Flutter template are:
 
 - Convenient app naming and icon generation
-- Conveninet environment variable management
+- Convenient environment variable management
 - Rust integration with ability to use multiple library crates
 - Localization
 
