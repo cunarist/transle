@@ -60,12 +60,26 @@ Normally, you would need to set up your IDE and compilers to load environment va
 
 # Command Line Scripts
 
-All of these assume that your terminal's working directory is set to the project's root folder.
+All of these assume that your terminal's working directory is set to the project's root folder. You might need to dive into this section quite often.
+
+Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
+
+```
+flutter pub get
+```
 
 Set the app name and domain.
 
+> This only works once. You cannot revert this.
+
 ```
 python ./automate/set_name_and_domain.py
+```
+
+Convert product icon in `./asset` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+
+```
+flutter pub run flutter_launcher_icons
 ```
 
 Make your debug tools work as expected with proper environment variables from `.env`.
@@ -76,18 +90,6 @@ Make your debug tools work as expected with proper environment variables from `.
 python ./automate/configure_launch.py
 ```
 
-Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
-
-```
-flutter pub get
-```
-
-Convert product icon in `./asset` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
-
-```
-flutter pub run flutter_launcher_icons
-```
-
 Check if Rust crates in `./native` have any compilation error.
 
 ```
@@ -96,7 +98,7 @@ python ./automate/load_env.py cargo check --manifest-path ./native/Cargo.toml
 
 Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
 
-> This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
+> You must run this command after making any modification to Rust code in `./native`. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. If you don't, Dart cannot properly access Rust code and intellisence will not work. These generated files are not version-controlled.
 
 ```
 python ./automate/generate_bridge.py
