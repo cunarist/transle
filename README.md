@@ -105,7 +105,7 @@ cargo check --manifest-path ./native/Cargo.toml
 
 Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
 
-> You must run this command after making any modification to Rust code in `./native`. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. If you don't, Dart cannot properly access Rust code and intellisence will not work. These generated files are not version-controlled.
+> You must run this command after making any modification to Rust code in `./native`. If you don't, Dart cannot properly access Rust code and intellisence will not work. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
 
 ```
 python ./automate/generate_bridge.py
