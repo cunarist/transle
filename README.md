@@ -155,7 +155,7 @@ Type hints should be provided for the maintainability of the code. Turn on stric
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
 
-Third-party Python packages shouldn't be used. The point of Cunarist App Template is an building an app with Flutter and Rust.
+Third-party Python packages shouldn't be used. The point of Cunarist App Template is building an app with Flutter and Rust.
 
 ## User Interface Texts
 
