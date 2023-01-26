@@ -57,7 +57,7 @@ flutter doctor
 
 Flutter-Rust Bridge is a code generator for communication between Flutter and Rust.
 
-After your system is ready, you will need to install dependencies for Flutter-Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
+You need to install extra dependencies for Flutter-Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
 
 # Environment Variables
 
