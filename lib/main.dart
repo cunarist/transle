@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
@@ -18,14 +17,16 @@ const minimumSize = Size(400, 400);
 const initialSize = Size(600, 600);
 
 void main() async {
-  if (kDebugMode) {
+  assert(() {
+    // assert statement gets removed in release mode
     String currentPath = Directory.current.path;
     String dotEnvPath = path.join(currentPath, ".env");
     File file = File(dotEnvPath);
     String dotEnvContent = file.readAsStringSync();
     dotenv.testLoad(fileInput: dotEnvContent);
     dotenv.env.forEach((k, v) => debugPrint("ENV $k $v"));
-  }
+    return true;
+  }());
 
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -60,7 +61,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) {
+    ThemeMode themeMode = ThemeMode.system;
+
+    assert(() {
+      // assert statement gets removed in release mode
       String currentPath = Directory.current.path;
       debugPrint('CWD $currentPath');
       Map<String, String> env = dotenv.env;
@@ -68,17 +72,16 @@ class MyApp extends StatelessWidget {
         String debugLocale = env["DEBUG_LOCALE"] ?? "en";
         context.setLocale(Locale(debugLocale));
       }
-    }
-
-    ThemeMode themeMode = ThemeMode.system;
-    switch (dotenv.env["DARK_MODE"]) {
-      case "true":
-        themeMode = ThemeMode.dark;
-        break;
-      case "false":
-        themeMode = ThemeMode.light;
-        break;
-    }
+      switch (dotenv.env["DARK_MODE"]) {
+        case "true":
+          themeMode = ThemeMode.dark;
+          break;
+        case "false":
+          themeMode = ThemeMode.light;
+          break;
+      }
+      return true;
+    }());
 
     return MaterialApp(
       title: appTitle,
