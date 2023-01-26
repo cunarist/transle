@@ -65,6 +65,8 @@ Before you proceed, manually create `.env` file by copying `.env.template` file.
 
 Normally, you would need to set up your IDE and compilers to load environment variables that are needed. However, Cunarist App Template provides convenient scripts to deal with environment variables written in `.env` file. The reason why `.env` file is not included in Cunarist App Template by default is because proper values of environment variables might differ between developing environments.
 
+`.env` file is only used in production and not included in the final release.
+
 # Localization
 
 Always write user interface texts in `./assets/translations`.

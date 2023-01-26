@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization_loader/easy_localization_loader.dart';
+import 'package:path/path.dart' as path;
 import 'app_state.dart';
 import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
@@ -16,6 +18,15 @@ const minimumSize = Size(400, 400);
 const initialSize = Size(600, 600);
 
 void main() async {
+  if (kDebugMode) {
+    String currentPath = Directory.current.path;
+    String dotEnvPath = path.join(currentPath, ".env");
+    File file = File(dotEnvPath);
+    String dotEnvContent = file.readAsStringSync();
+    dotenv.testLoad(fileInput: dotEnvContent);
+    dotenv.env.forEach((k, v) => debugPrint("ENV $k $v"));
+  }
+
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
@@ -50,11 +61,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      debugPrint('CWD ${Directory.current.path}');
-      Map<String, String> env = Platform.environment;
-      env.forEach((k, v) => debugPrint("ENV $k $v"));
-      if (env.containsKey("DEBUG_LOCALE")) {
-        String debugLocale = env["DEBUG_LOCALE"] ?? "";
+      String currentPath = Directory.current.path;
+      debugPrint('CWD $currentPath');
+      Map<String, String> env = dotenv.env;
+      if (env.containsKey("DEBUG_LOCALE") && env["DEBUG_LOCALE"] != "") {
+        String debugLocale = env["DEBUG_LOCALE"] ?? "en";
         context.setLocale(Locale(debugLocale));
       }
     }
