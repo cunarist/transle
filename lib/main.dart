@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
+      debugPrint('CWD ${Directory.current.path}');
       Map<String, String> env = Platform.environment;
       env.forEach((k, v) => debugPrint("ENV $k $v"));
       if (env.containsKey("DEBUG_LOCALE")) {
