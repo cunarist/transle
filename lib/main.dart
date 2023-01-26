@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization_loader/easy_localization_loader.dart';
-import 'package:path/path.dart' as path;
 import 'app_state.dart';
 import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
@@ -19,10 +18,7 @@ const initialSize = Size(600, 600);
 void main() async {
   assert(() {
     // assert statement gets removed in release mode
-    String dotEnvPath = path.join(Directory.current.path, ".env");
-    File dotEnvFile = File(dotEnvPath);
-    String dotEnvContent = dotEnvFile.readAsStringSync();
-    dotenv.testLoad(fileInput: dotEnvContent);
+    dotenv.testLoad(fileInput: File(".env").readAsStringSync());
     dotenv.env.forEach((k, v) => debugPrint("ENV $k $v"));
     return true;
   }());

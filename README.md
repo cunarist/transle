@@ -61,11 +61,17 @@ You need to install extra dependencies for Flutter-Rust Bridge. Refer to the [of
 
 # Environment Variables
 
-Before you proceed, manually create `.env` file by copying `.env.template` file. `.env` file is not version-controlled.
+Before you proceed, you need to prepare files for environment variables.
 
-Normally, you would need to set up your IDE and compilers to load environment variables that are needed. However, Cunarist App Template provides convenient scripts to deal with environment variables written in `.env` file. The reason why `.env` file is not included in Cunarist App Template by default is because proper values of environment variables might differ between developing environments.
+1. Create `./.env` file by copying `./.env.template` file.
+1. Create `./native/.cargo/config.toml` file by copying `./native/.cargo/config.toml.template`.
 
-`.env` file is only used in production and not included in the final release.
+Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
+
+- File `./.env` includes environment variables for Dart. You might need them to control user interface during development.
+- File `./native/.cargo/config.toml` includes environment variables loaded in Rust. You might need them to locate external C++ library paths through environment variables for compilation.
+
+You can change values of environment variables inside these files during development to suit your needs. Environment variable files are only used in production and not included in the final release.
 
 # Command Line Scripts
 
@@ -85,24 +91,16 @@ Set the app name and domain.
 python ./automate/set_name_and_domain.py
 ```
 
-Convert product icon in `./asset` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+Convert product icon in `./asset` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
 
 ```
 flutter pub run flutter_launcher_icons
 ```
 
-Make your debug tools work as expected with proper environment variables from `.env`.
-
-> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel. Other IDEs are not supported.
-
-```
-python ./automate/configure_launch.py
-```
-
 Check if Rust crates in `./native` have any compilation error.
 
 ```
-python ./automate/load_env.py cargo check --manifest-path ./native/Cargo.toml
+cargo check --manifest-path ./native/Cargo.toml
 ```
 
 Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
@@ -118,13 +116,13 @@ Run the app in debug mode.
 > Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
 
 ```
-python ./automate/load_env.py flutter run
+flutter run
 ```
 
 Build the app in release mode.
 
 ```
-python ./automate/load_env.py flutter build
+flutter build
 ```
 
 # Rules
@@ -140,7 +138,8 @@ These are the top-level files and folders that are allowed to edit during app de
 - `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name.
 - `lib`: Dart modules for Flutter.
 - `pubspec.yaml`: Flutter settings and dependencies.
-- `.env.template`: Template of `.env` file. Includes environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
+- `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
+- `native/.cargo/config.toml.template`: Template of `config.toml` file. Includes environment variables that will be loaded during Rust compilation.
 
 ## Division of Functions
 

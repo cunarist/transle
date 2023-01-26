@@ -6,9 +6,10 @@ import tomllib
 # Analyze existing crates
 folderpath = "./native"
 crate_names: list[str] = []
+ignore_folders = ["target", ".cargo"]
 for folder_name in os.listdir(folderpath):
     crate_path = os.path.join(folderpath, folder_name)
-    if not os.path.isdir(crate_path) or folder_name == "target":
+    if not os.path.isdir(crate_path) or folder_name in ignore_folders:
         continue
     cargo_toml_path = os.path.join(crate_path, "Cargo.toml")
     with open(cargo_toml_path, mode="rb") as file:
