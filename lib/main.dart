@@ -36,7 +36,7 @@ void main() async {
   );
 
   doWhenWindowReady(() {
-    appWindow.title = "Some App Name";
+    appWindow.title = "appTitle".tr();
     appWindow.minSize = minimumSize;
     appWindow.size = initialSize;
     appWindow.alignment = Alignment.center;
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
       Map<String, String> env = Platform.environment;
       env.forEach((k, v) => debugPrint("ENV $k $v"));
       if (env.containsKey("DEBUG_LOCALE")) {
-        String debugLocale = env["DEBUG_LOCALE"] ?? "en";
+        String debugLocale = env["DEBUG_LOCALE"] ?? "";
         context.setLocale(Locale(debugLocale));
       }
     }
