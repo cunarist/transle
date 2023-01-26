@@ -165,7 +165,7 @@ However, there are some extra folders created in Cunarist App Template in order 
 
 - `automate`: Python scripts for automating development process. These scripts have nothing to do with actual build and doesn't get included in the app release. Only for developers.
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
-- `asset`: A place for asset files such as images.
+- `assets`: A place for asset files such as images.
 
 There are also temporary folders related to the build process. These should not be version-controlled.
 

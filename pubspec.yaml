@@ -41,10 +41,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - asset/
+    - assets/
 
 flutter_icons:
-  image_path: "asset/app_icon.png"
+  image_path: "assets/app_icon.png"
   web:
     generate: true
   android: "launcher_icon"
