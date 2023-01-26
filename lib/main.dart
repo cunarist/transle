@@ -32,12 +32,12 @@ void main() async {
       create: (context) => MyAppState(),
       child: EasyLocalization(
         supportedLocales: const [
-          Locale('en'),
-          Locale('ko'),
+          Locale('en-US'),
+          Locale('ko-KR'),
         ],
         path: 'assets/translations',
         assetLoader: YamlAssetLoader(),
-        fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale('en-US'),
         child: const MyApp(),
       ),
     ),
