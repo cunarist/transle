@@ -18,6 +18,7 @@ const initialSize = Size(600, 600);
 void main() async {
   assert(() {
     // assert statement gets removed in release mode
+    debugPrint('CWD ${Directory.current.path}');
     dotenv.testLoad(fileInput: File(".env").readAsStringSync());
     dotenv.env.forEach((k, v) => debugPrint("ENV $k $v"));
     return true;
@@ -60,7 +61,6 @@ class MyApp extends StatelessWidget {
 
     assert(() {
       // assert statement gets removed in release mode
-      debugPrint('CWD ${Directory.current.path}}');
       String? debugLocale = dotenv.env["DEBUG_LOCALE"];
       switch (debugLocale) {
         case null:
