@@ -19,10 +19,9 @@ const initialSize = Size(600, 600);
 void main() async {
   assert(() {
     // assert statement gets removed in release mode
-    String currentPath = Directory.current.path;
-    String dotEnvPath = path.join(currentPath, ".env");
-    File file = File(dotEnvPath);
-    String dotEnvContent = file.readAsStringSync();
+    String dotEnvPath = path.join(Directory.current.path, ".env");
+    File dotEnvFile = File(dotEnvPath);
+    String dotEnvContent = dotEnvFile.readAsStringSync();
     dotenv.testLoad(fileInput: dotEnvContent);
     dotenv.env.forEach((k, v) => debugPrint("ENV $k $v"));
     return true;
@@ -65,14 +64,18 @@ class MyApp extends StatelessWidget {
 
     assert(() {
       // assert statement gets removed in release mode
-      String currentPath = Directory.current.path;
-      debugPrint('CWD $currentPath');
-      Map<String, String> env = dotenv.env;
-      if (env.containsKey("DEBUG_LOCALE") && env["DEBUG_LOCALE"] != "") {
-        String debugLocale = env["DEBUG_LOCALE"] ?? "en";
-        context.setLocale(Locale(debugLocale));
+      debugPrint('CWD ${Directory.current.path}}');
+      String? debugLocale = dotenv.env["DEBUG_LOCALE"];
+      switch (debugLocale) {
+        case null:
+          break;
+        case "":
+          break;
+        default:
+          context.setLocale(Locale(debugLocale ?? ""));
       }
-      switch (dotenv.env["DARK_MODE"]) {
+      String? darkMode = dotenv.env["DARK_MODE"];
+      switch (darkMode) {
         case "true":
           themeMode = ThemeMode.dark;
           break;
