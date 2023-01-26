@@ -143,7 +143,7 @@ These are the top-level files and folders that are allowed to edit during app de
 
 Flutter should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Flutter has trouble dealing with multiple platforms on one's side.
 
-If the characteristic of a specific Rust API is totally different from other Rust APIs, it should be separated into a separate Rust crate. All crates should provide a clean API with descriptive function names.
+If the characteristic of a specific Rust API is totally different from other Rust APIs, it should be detached into a separate Rust crate. All crates should provide a clean API with descriptive function names.
 
 ## Python Automation Scripts
 
