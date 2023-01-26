@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,7 +6,6 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'app_state.dart';
 import 'bridge/first_crate/ffi.dart' as first_crate;
 import 'bridge/second_crate/ffi.dart' as second_crate;
-import 'dart:io';
 
 const appTitle = 'Some App Name';
 const primaryColor = Color.fromARGB(255, 0, 156, 122);
