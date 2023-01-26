@@ -4,6 +4,13 @@ This software is a combination of Flutter and Rust. Flutter is used to build cro
 
 This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
 
+Extra features from this template that are not included in original Flutter template are:
+
+- Convenient app naming and icon generation
+- Conveninet environment variable management
+- Rust integration with ability to use multiple library crates
+- Localization
+
 # Platform Support
 
 Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
