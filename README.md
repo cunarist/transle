@@ -163,7 +163,7 @@ Third-party Python packages shouldn't be used. The point of Cunarist App Templat
 
 Always write user interface texts in `./assets/translations`.
 
-When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivival task. Therefore it is a must to write texts that will be presented to normal users in translation files.
+When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivial task. Therefore it is a must to write texts that will be presented to normal users in translation files.
 
 Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
 
