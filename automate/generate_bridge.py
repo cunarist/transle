@@ -1,14 +1,24 @@
 import os
 import glob
 import shutil
+import tomllib
 
 # Analyze existing crates
 folderpath = "./native"
 crate_names: list[str] = []
-for item_name in os.listdir(folderpath):
-    item_path = os.path.join(folderpath, item_name)
-    if os.path.isdir(item_path) and item_name != "target":
-        crate_names.append(item_name)
+for folder_name in os.listdir(folderpath):
+    crate_path = os.path.join(folderpath, folder_name)
+    if not os.path.isdir(crate_path) or folder_name == "target":
+        continue
+    cargo_toml_path = os.path.join(crate_path, "Cargo.toml")
+    with open(cargo_toml_path, mode="rb") as file:
+        cargo_toml = tomllib.load(file)
+    crate_name = cargo_toml["package"]["name"]
+    if crate_name != folder_name:
+        text = f"The library crate '{crate_name}'"
+        text += f" has different folder name '{folder_name}'."
+        raise ValueError(text)
+    crate_names.append(crate_name)
 
 # Clear bridge folder
 folderpath = f"./lib/bridge"
