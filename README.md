@@ -122,7 +122,7 @@ flutter run
 Build the app in release mode.
 
 ```
-flutter build
+flutter build (platform) --release
 ```
 
 # Rules
