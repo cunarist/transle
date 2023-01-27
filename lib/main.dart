@@ -29,7 +29,7 @@ void main() async {
 
   runApp(
     ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+      create: (context) => AppState(),
       child: EasyLocalization(
         supportedLocales: const [
           Locale('en', 'US'),
@@ -114,7 +114,7 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Consumer<MyAppState>(
+            Consumer<AppState>(
               builder: (context, appState, child) =>
                   const Text("counter.informationText").tr(namedArgs: {
                 "theValue": appState.tester.counterValue.toString()
@@ -125,7 +125,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<MyAppState>().setState((MyAppState s) async {
+          context.read<AppState>().setState((AppState s) async {
             int original = s.tester.counterValue;
             int calculated = original;
             calculated = await second_crate.api.multiplyTwo(before: calculated);

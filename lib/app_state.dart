@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyAppState with ChangeNotifier {
+class AppState with ChangeNotifier {
   var tester = TestStateCategory();
   var someHelper = SomeHelperStateCategory();
 
