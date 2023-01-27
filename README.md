@@ -32,16 +32,13 @@ Go to the [official downloads page](https://www.python.org/downloads/) if your s
 
 ## Preparing Rust
 
-Refer to the [official documentation](https://doc.rust-lang.org/book/).
+Refer to the [official docs](https://doc.rust-lang.org/book/ch01-01-installation.html).
 
 ## Preparing Flutter
 
-View the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
+Refer to the [official docs](https://docs.flutter.dev/get-started/install).
 
-There are also many useful official resources to read:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter docs also offer tutorials, samples, guidance on mobile development, and a full API reference. There are also many useful resources to read.
 
 ## System Verification
 
@@ -53,29 +50,30 @@ rustc --version
 flutter doctor
 ```
 
-# Flutter-Rust Bridge Preparation
+# Bridge Generator
 
-Flutter-Rust Bridge is a code generator for communication between Flutter and Rust.
+This template uses Dart and Rust. Using multiple programming languages means that we need to establish a bridge between them. [Flutter Rust Bridge](https://pub.dev/packages/flutter_rust_bridge) is a tool dedicated for this purpose.
 
-You need to install extra dependencies for Flutter-Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
+You need to install extra dependencies for Flutter Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
 
 # Environment Variables
 
 Before you proceed, you need to prepare files for environment variables.
 
-1. Create `./.env` file by copying `./.env.template` file.
-1. Create `./native/.cargo/config.toml` file by copying `./native/.cargo/config.toml.template`.
+This terminal command will generate environment variable files or update them from template files if they already exist.
+
+```
+python ./automate/update_dev_config.py
+```
 
 Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
 
 - File `./.env` includes environment variables for Dart. You might need them to control user interface during development.
 - File `./native/.cargo/config.toml` includes environment variables loaded in Rust. You might need them to locate external C++ library paths through environment variables for compilation.
 
-You can change values of environment variables inside these files during development to suit your needs. Environment variable files are only used in production and not included in the final release.
+You should change values of environment variables inside these files during development to suit your needs. Environment variable files are only used in production and not included in the final release.
 
-# Command Line Scripts
-
-All of these assume that your terminal's working directory is set to the project's root folder. You might need to dive into this section quite often.
+# Setting Up
 
 Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
@@ -91,11 +89,15 @@ Set the app name and domain.
 python ./automate/set_name_and_domain.py
 ```
 
-Convert product icon in `./asset` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+Convert product icon in `./assets` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
 
 ```
 flutter pub run flutter_launcher_icons
 ```
+
+# Actual Development
+
+You might need to dive into this section quite often.
 
 Check if Rust crates in `./native` have any compilation error.
 
@@ -133,11 +135,15 @@ You shouldn't be editing any file without enough knowledge on how it works.
 
 These are the top-level files and folders that are allowed to edit during app development:
 
-- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name.
+### Dart Related
+
 - `lib`: Dart modules for Flutter.
 - `pubspec.yaml`: Flutter settings and dependencies.
 - `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
-- `native/.cargo/config.toml.template`: Template of `config.toml` file. Includes environment variables that will be loaded during Rust compilation.
+
+### Rust Related
+
+- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project.
 
 ## Division of Functions
 
@@ -188,3 +194,7 @@ There are also temporary folders related to the build process. These should not 
 - `build`: Where the final executable is saved.
 
 In addition, there might be some other folders generated by tools or IDE you are using.
+
+# Credits
+
+- [Will Pearson](https://github.com/uiri) for the code in `./automate/toml` which is distributed under the MIT License.
