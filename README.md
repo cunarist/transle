@@ -68,7 +68,7 @@ python ./automate/update_dev_config.py
 
 Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
 
-- File `./.env` includes environment variables for Dart. You might need them to control user interface during development. If you change the content, it will be automatically loaded on hot reload.
+- File `./.env` includes environment variables for Dart. You might need them to control user interface during development. If you change the content, it will be automatically loaded on app restart.
 - File `./native/.cargo/config.toml` includes environment variables loaded in Rust. You might need them to locate external C++ library paths through environment variables for compilation.
 
 You should change values of environment variables inside these files during development to suit your needs. Environment variable files are only used in production and not included in the final release.
