@@ -38,7 +38,7 @@ void main() async {
         path: 'assets/translations',
         assetLoader: YamlAssetLoader(),
         fallbackLocale: const Locale('en', 'US'),
-        child: const MyApp(),
+        child: const App(),
       ),
     ),
   );
@@ -52,8 +52,8 @@ void main() async {
   });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       themeMode: themeMode,
-      home: const MyHomePage(),
+      home: const HomePage(),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -104,8 +104,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -115,10 +115,10 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Consumer<AppState>(
-              builder: (context, appState, child) =>
-                  const Text("counter.informationText").tr(namedArgs: {
+              builder: (context, appState, child) => Text(
+                  "counter.informationText".tr(namedArgs: {
                 "theValue": appState.tester.counterValue.toString()
-              }),
+              })),
             ),
           ],
         ),
