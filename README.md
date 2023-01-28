@@ -1,8 +1,8 @@
 # Project Structure
 
-This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for the internal logic.
+This software is a combination of Flutter and Rust. Flutter creates cross-platform user interface using Dart. Rust handles the internal logic.
 
-This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
+This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
 
 Extra features from this template that are not included in original Flutter template are:
 
@@ -13,7 +13,7 @@ Extra features from this template that are not included in original Flutter temp
 
 # Platform Support
 
-Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
+Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
 
 Currently supported platforms in Cunarist App Template are:
 
@@ -75,7 +75,7 @@ You should change values of environment variables inside these files during deve
 
 # Setting Up
 
-Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
+Install Dart packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
 ```
 flutter pub get
@@ -111,7 +111,7 @@ Check if Rust crates in `./native` have any compilation error.
 cargo check --manifest-path ./native/Cargo.toml
 ```
 
-Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
+Generate code that enables your Dart functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
 
 > You must run this command after making any modification to Rust code in `./native`. If you don't, Dart cannot properly access Rust code and intellisense will not work. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
 
@@ -143,8 +143,8 @@ These are the top-level files and folders that are allowed to edit during app de
 
 ### Dart Related
 
-- `lib`: Dart modules for Flutter.
-- `pubspec.yaml`: Flutter settings and dependencies.
+- `lib`: Dart modules.
+- `pubspec.yaml`: Dart settings and dependencies.
 - `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
 
 ### Rust Related
@@ -153,7 +153,7 @@ These are the top-level files and folders that are allowed to edit during app de
 
 ## Division of Functions
 
-Flutter should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Flutter has trouble dealing with multiple platforms on one's side.
+Dart should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Dart has trouble dealing with multiple platforms on one's side.
 
 If the characteristic of a specific Rust API is totally different from other Rust APIs, it should be detached into a separate Rust crate. All crates should provide a clean API with descriptive function names.
 
