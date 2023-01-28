@@ -151,6 +151,10 @@ These are the top-level files and folders that are allowed to edit during app de
 
 - `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project.
 
+## Comments
+
+Please write kind and readable comments next to your code. You are probably not going to be developing on your own. Other developers should to be able to grasp a sense of complex code that you wrote. Long and detailed comments are welcomed.
+
 ## User Interface Texts
 
 Always write user interface texts in `./assets/translations`.
