@@ -151,6 +151,14 @@ These are the top-level files and folders that are allowed to edit during app de
 
 - `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project.
 
+## User Interface Texts
+
+Always write user interface texts in `./assets/translations`.
+
+When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivial task. Therefore it is a must to write texts that will be presented to normal users in translation files.
+
+Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
+
 ## Division of Functions
 
 Dart should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Dart has trouble dealing with multiple platforms on one's side.
@@ -166,14 +174,6 @@ Although Python automation is convenient, if there comes a situation where depen
 Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `# type: ignore` to suppress the warning.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
-
-## User Interface Texts
-
-Always write user interface texts in `./assets/translations`.
-
-When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivial task. Therefore it is a must to write texts that will be presented to normal users in translation files.
-
-Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
 
 # Folder Structure
 
