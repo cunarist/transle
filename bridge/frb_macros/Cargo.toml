@@ -1,0 +1,14 @@
+[package]
+name = "flutter_rust_bridge_macros"
+version.workspace = true
+edition.workspace = true
+description = "Supporting procedural macros for flutter_rust_bridge"
+license.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+
+[lib]
+proc-macro = true

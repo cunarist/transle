@@ -50,12 +50,6 @@ rustc --version
 flutter doctor
 ```
 
-# Bridge Generator
-
-This template uses Dart and Rust. Using multiple programming languages means that we need to establish a bridge between them. [Flutter Rust Bridge](https://pub.dev/packages/flutter_rust_bridge) is a tool dedicated for this purpose.
-
-You need to install extra dependencies for Flutter Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
-
 # Environment Variables
 
 Before you proceed, you need to prepare files for environment variables.
@@ -109,14 +103,6 @@ Check if Rust crates in `./native` have any compilation error.
 
 ```
 cargo check --manifest-path ./native/Cargo.toml
-```
-
-Generate code that enables your Dart functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
-
-> You must run this command after making any modification to Rust code in `./native`. If you don't, Dart cannot properly access Rust code and intellisense will not work. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
-
-```
-python ./automate/generate_bridge.py
 ```
 
 Run the app in debug mode.
