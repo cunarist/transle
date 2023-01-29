@@ -15,8 +15,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     ThemeMode themeMode = ThemeMode.system;
 
-    // Debug mode code (assert statement gets removed in release mode)
+    // Debug mode code
     assert(() {
+      // assert statement gets removed in release mode
       String debugLocale = dotenv.env['DEBUG_LOCALE'] ?? '';
       switch (debugLocale) {
         case '':
@@ -37,9 +38,13 @@ class App extends StatelessWidget {
       return true;
     }());
 
-    // Set function that will be run before closing the window on desktop
+    // Run code that will be run before closing the window on desktop
     FlutterWindowClose.setWindowShouldCloseHandler(() async {
-      debugPrint('App closing');
+      assert(() {
+        // assert statement gets removed in release mode
+        debugPrint('App closing');
+        return true;
+      }());
       return true;
     });
 

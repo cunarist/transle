@@ -10,8 +10,9 @@ import 'app.dart';
 import 'value.dart';
 
 void main() async {
-  // Debug mode code (assert statement gets removed in release mode)
+  // Debug mode code
   assert(() {
+    // assert statement gets removed in release mode
     debugPrint('CWD ${Directory.current.path}');
     dotenv.testLoad(fileInput: File('.env').readAsStringSync());
     dotenv.env.forEach((k, v) => debugPrint('ENV $k $v'));
