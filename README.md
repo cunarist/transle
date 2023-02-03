@@ -28,7 +28,7 @@ You can use an IDE of your choice. However, [Visual Studio Code](https://code.vi
 
 ## Preparing Python
 
-Go to the [official downloads page](https://www.python.org/downloads/) if your system doesn't provide a pre-installed version. Make sure Python installation is incldued in `PATH` environment variable.
+Download it from the app store if your system doesn't provide a pre-installed version. It's also available at [official downloads page](https://www.python.org/downloads/).
 
 ## Preparing Rust
 
