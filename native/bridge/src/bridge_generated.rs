@@ -65,7 +65,9 @@ impl Wire2Api<i32> for i32 {
 
 // Section: executor
 
-/* nothing since executor detected */
+support::lazy_static! {
+    pub static ref FLUTTER_RUST_BRIDGE_HANDLER: support::DefaultHandler = Default::default();
+}
 
 #[cfg(not(target_family = "wasm"))]
 #[path = "bridge_generated.io.rs"]

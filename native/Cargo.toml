@@ -1,5 +1,2 @@
 [workspace]
-members = [
-    "first_crate",
-    "second_crate",
-]
+members = ["bridge", "first_crate", "second_crate"]

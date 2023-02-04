@@ -48,4 +48,3 @@ app.*.map.json
 .vscode/
 native/.cargo/config.toml
 native/target/
-bridge/target/
