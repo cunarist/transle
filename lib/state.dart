@@ -1,6 +1,9 @@
+// Work in progress...
+// Rust integration is not finished
+
 import 'package:flutter/material.dart';
 
-class MyAppState with ChangeNotifier {
+class AppState with ChangeNotifier {
   var tester = TestStateCategory();
   var someHelper = SomeHelperStateCategory();
 
@@ -16,5 +19,5 @@ class TestStateCategory {
 
 class SomeHelperStateCategory {
   int someValue = 0;
-  String anotherValue = "";
+  String anotherValue = '';
 }

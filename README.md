@@ -1,22 +1,56 @@
-# Project Structure
+# About This Template
 
-This software is a combination of Flutter and Rust. Flutter is used to build cross-platform user interface and Rust is used for the internal logic.
+> You can remove this section after you've created your own repository.
 
-This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter app template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
+This template provides instant capabilities to developers who want to embrace the power of **Rust** and **Flutter** together. Simply clone this template and you're ready to go!
 
-# Platform Support
+The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
 
-Flutter and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
+Extra features from this template that are not included in original Flutter template are:
+
+- Rust integration with ability to use multiple library crates
+- State management with data on the Rust side
+- Convenient app naming and icon generation
+- Convenient environment variable management
+- Localization
+- Setting window properties on desktops
+
+## Platform Support
+
+Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
 
 Currently supported platforms in Cunarist App Template are:
 
 - Windows
+- Linux
+
+The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
+
+## Contribution
+
+All contributions are welcomed! If you have an idea to share or want to report a bug, please leave it as an issue or a pull request. We will try to respond to any commitment as quick as possible.
+
+# Project Structure
+
+**Flutter** creates cross-platform user interface using Dart while **Rust** handles the internal logic. The front-end and back-end are completely separated. These two worlds communicate through steams.
+
+This repository is based on [Cunarist App Template](https://github.com/cunarist/app-template). It is possible to receive latest updates from the template repository with the Python command stated below.
 
 # System Preparation
 
-Flutter and Rust are required for building the app itself. Git and Python should be installed on your system to automate complicated procedures.
+Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures. Git is responsible for version-control and template update.
 
 You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
+
+## Preparing Rust
+
+Refer to the [official docs](https://doc.rust-lang.org/book/ch01-01-installation.html).
+
+## Preparing Flutter
+
+Refer to the [official docs](https://docs.flutter.dev/get-started/install).
+
+Flutter docs also offer tutorials, samples, guidance on mobile development, and a full API reference. There are also many useful resources to read.
 
 ## Preparing Git
 
@@ -24,20 +58,7 @@ Go to the [official downloads page](https://git-scm.com/downloads)
 
 ## Preparing Python
 
-Go to the [official downloads page](https://www.python.org/downloads/) if your system doesn't provide a pre-installed version. Make sure Python installation is incldued in `PATH` environment variable.
-
-## Preparing Rust
-
-Refer to the [official documentation](https://doc.rust-lang.org/book/).
-
-## Preparing Flutter
-
-View the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
-
-There are also many useful official resources to read:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Download it from the app store if your system doesn't provide a pre-installed version. It's also available at [official downloads page](https://www.python.org/downloads/).
 
 ## System Verification
 
@@ -50,72 +71,75 @@ rustc --version
 flutter doctor
 ```
 
-# Flutter-Rust Bridge Preparation
+# Environment Variables
 
-Flutter-Rust Bridge is a code generator for communication between Flutter and Rust.
+Before you proceed, you need to prepare files for environment variables.
 
-After your system is ready, you will need to install dependencies for Flutter-Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
-
-# Command Line Scripts
-
-All of these assume that your terminal's working directory is set to the project's root folder.
-
-Set the app name and domain.
+This terminal command will generate environment variable files or update them from template files if they already exist.
 
 ```
-python ./automate/set_name_and_domain.py
+python automate configuration
 ```
 
-Download external source files described in `.external_zip_url` to `./.external`.
+Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
 
-```
-python ./automate/download_external_source.py
-```
+- File `./.env` includes environment variables for Dart. You might need them to control user interface during development. If you change the content, it will be automatically loaded on app restart.
+- File `./native/.cargo/config.toml` includes environment variables loaded in Rust. You might need them to locate external C++ library paths through environment variables for compilation.
 
-Make your debug tools work as expected with proper environment variables from `.env`.
+You should change values of environment variables inside these files during development to suit your needs. Environment variable files are only used in production and not included in the final release.
 
-```
-python ./automate/configure_launch.py
-```
+# Setting Up
 
-> Currently, this is only for Visual Studio Code where you can select launch configuration in `Run and Debug` Panel.
-
-Install Flutter packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
+Install Dart packages written in `./pubspec.yaml` from [Pub](https://pub.dev/).
 
 ```
 flutter pub get
 ```
 
-Convert product icon in `./asset` to be available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
+Install Python packages written in `./requirements.txt` from [PyPI](https://pypi.org/).
+
+```
+pip install -r requirements.txt
+```
+
+Set the app name and domain. This only works once and you cannot revert this.
+
+```
+python automate naming
+```
+
+Convert product icon in `./assets` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
 
 ```
 flutter pub run flutter_launcher_icons
 ```
 
+Receive latest updates from [Cunarist App Template](https://github.com/cunarist/app-template).
+
+```
+python automate template
+```
+
+# Actual Development
+
+You might need to dive into this section quite often.
+
 Check if Rust crates in `./native` have any compilation error.
 
 ```
-python ./automate/load_env.py cargo check --manifest-path ./native/Cargo.toml
-```
-
-Generate code that enables your Flutter functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
-
-```
-python ./automate/generate_bridge.py
+cargo check --manifest-path ./native/Cargo.toml
 ```
 
 Run the app in debug mode.
 
 ```
-python ./automate/load_env.py flutter run
+flutter run
 ```
-
-> Run button in UI of Visual Studio code doesn't take launch configuration into account. Use `Run and Debug` panel if possible.
 
 Build the app in release mode.
 
 ```
-python ./automate/load_env.py flutter build
+flutter build (platform) --release
 ```
 
 # Rules
@@ -128,27 +152,41 @@ You shouldn't be editing any file without enough knowledge on how it works.
 
 These are the top-level files and folders that are allowed to edit during app development:
 
-- `native`: Rust crates.
-- `lib`: Dart modules for Flutter.
-- `pubspec.yaml`: Flutter settings and dependencies.
-- `.env`: Environment variables that will be loaded before compilation. This is useful when some dependency requires the location of external source files such as C++ libraries to be informed through an environment variable.
-- `.external_zip_url`: URLs of external libraries that should be downloaded through an automated Python script.
+### Dart Related
+
+- `lib`: Dart modules. Do not modify `bridge` folder inside it.
+- `pubspec.yaml`: Dart settings and dependencies.
+- `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
+
+### Rust Related
+
+- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project. Do not modify `bridge` folder inside it.
+
+## Comments
+
+Please write kind and readable comments next to your code. You are probably not going to be developing on your own. Other developers should to be able to grasp a sense of complex code that you wrote. Long and detailed comments are welcomed.
+
+## User Interface Texts
+
+Always write user interface texts in `./assets/translations`.
+
+When an app gains popularity, there comes a need to support multiple languages. However, manually replacing thousands of text widgets in the user interface is not a trivial task. Therefore it is a must to write texts that will be presented to normal users in translation files.
+
+Refer to [Easy Localization](https://pub.dev/packages/easy_localization) docs for more details.
 
 ## Division of Functions
 
-Flutter should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Flutter has trouble dealing with multiple platforms on one's side.
+Dart should only be used for user interface and Rust should handle all other logics such as file handling, event handling, timer repetition, calculation, network communication, etc. There can be an exception though if Rust or Dart has trouble dealing with multiple platforms on one's side.
 
-If the characteristic of a specific Rust API is totally different from other Rust APIs, it should be separated into a separate Rust crate. All crates should provide a clean API with descriptive function names.
+If the characteristic of a specific Rust API is totally different from other Rust APIs, it should be detached into a separate Rust crate. All crates should provide a clean API with descriptive function names.
 
 ## Python Automation Scripts
 
-Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation. Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
+For faster and easier development, Cunarist App Template relies on Python scripts in `./automate` for automation.
 
-Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `# type: ignore` to suppress the warning.
+Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
-
-Third-party Python packages shouldn't be used. The point of Cunarist App Template is an building an app with Flutter and Rust.
 
 # Folder Structure
 
@@ -166,11 +204,6 @@ However, there are some extra folders created in Cunarist App Template in order 
 
 - `automate`: Python scripts for automating development process. These scripts have nothing to do with actual build and doesn't get included in the app release. Only for developers.
 - `native`: A workspace Rust crate that includes many other Rust crates. Each crate inside this folder gets compiled into a library file(`.dll`/`.so`). That means if there are 10 crates inside this folder, then there would be 10 library file next to the executable after compilation, each with a file name corresponding to their original crate.
-- `asset`: A place for asset files such as images.
+- `assets`: A place for asset files such as images.
 
-There are also temporary folders related to the build process. These should not be version-controlled.
-
-- `build`: Where the final executable is saved.
-- `.external`: Where external sources go into. Inside can be a C or C++ library which will be dealt with FFI, Dart library, or any third-party source that eventually gets compiled but cannot be included in the project simply with `pubspec.yaml` or `Cargo.toml`. If an external source should be added, don't forget to enable automatic download by modifying `.external_zip_url`.
-
-In addition, there might be some other folders generated by tools or IDE you are using.
+In addition, there might be some other temporary folders generated by tools or IDE you are using. Those should not be version-controlled.

@@ -2,8 +2,8 @@ use super::*;
 // Section: wire functions
 
 #[no_mangle]
-pub extern "C" fn wire_multiply_two(port_: i64, before: i32) {
-    wire_multiply_two_impl(port_, before)
+pub extern "C" fn wire_add_three(port_: i64, before: i32) {
+    wire_add_three_impl(port_, before)
 }
 
 // Section: allocate functions

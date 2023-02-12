@@ -9,12 +9,12 @@ import 'bridge_generated.dart';
 export 'bridge_generated.dart';
 import 'dart:io' as io;
 
-const _base = 'second_crate';
+const _base = 'bridge';
 
 // On MacOS, the dynamic library is not bundled with the binary,
 // but rather directly **linked** against the binary.
 final _dylib = io.Platform.isWindows ? '$_base.dll' : 'lib$_base.so';
 
-final SecondCrate api = SecondCrateImpl(io.Platform.isIOS || io.Platform.isMacOS
+final Bridge api = BridgeImpl(io.Platform.isIOS || io.Platform.isMacOS
     ? DynamicLibrary.executable()
     : DynamicLibrary.open(_dylib));

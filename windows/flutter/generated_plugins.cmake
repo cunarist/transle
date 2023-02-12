@@ -4,6 +4,8 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   bitsdojo_window_windows
+  connectivity_plus_windows
+  flutter_window_close
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
