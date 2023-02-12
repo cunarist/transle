@@ -28,6 +28,10 @@ Currently supported platforms in Cunarist App Template are:
 - Windows
 - Linux
 
+## Contribution
+
+All contributions are welcomed! If you have an idea to share or want to report a bug, please leave it as an issue or a pull request. We will try to respond to any commitment as quick as possible.
+
 # Project Structure
 
 **Flutter** creates cross-platform user interface using Dart while **Rust** handles the internal logic. The front-end and back-end is entirely separated. These two worlds communicate through steams.
