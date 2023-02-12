@@ -13,7 +13,7 @@ Extra features from this template that are not included in original Flutter temp
 - Convenient app naming and icon generation
 - Convenient environment variable management
 - Localization
-- Window settings on desktops
+- Window setting on desktops
 
 We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
 
