@@ -7,4 +7,4 @@ edition = "2021"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
-flutter_rust_bridge = { worspace = "true" }
+flutter_rust_bridge = { worspace = "true", features = ["worker-single"] }
