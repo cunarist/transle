@@ -111,7 +111,7 @@ Convert product icon in `./assets` to make available in multiple platforms with 
 flutter pub run flutter_launcher_icons
 ```
 
-Receive latest updates from [Cunarist App Template](https://github.com/cunarist/app-template). This is currently experimental.
+Receive latest updates from [Cunarist App Template](https://github.com/cunarist/app-template).
 
 ```
 python automate template
