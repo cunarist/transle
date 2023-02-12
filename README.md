@@ -24,7 +24,7 @@ Currently supported platforms in Cunarist App Template are:
 - Windows
 - Linux
 
-In the future, this template will support Windows, Linux, macOS, Android and iOS. Web is not on the list. Although Rust can be executed on the web via webassembly, there are so many limitations. The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
+The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
 
 ## Contribution
 
