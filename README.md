@@ -1,35 +1,3 @@
-# About This Template
-
-> You can remove this section after you've created your own repository.
-
-This template provides instant capabilities to developers who want to embrace the power of **Rust** and **Flutter** together. Simply clone this template and you're ready to go!
-
-The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
-
-Extra features from this template that are not included in original Flutter template are:
-
-- Rust integration with ability to use multiple library crates
-- State management with data on the Rust side
-- Convenient app naming and icon generation
-- Convenient environment variable management
-- Localization
-- Setting window properties on desktops
-
-## Platform Support
-
-Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
-
-Currently supported platforms in Cunarist App Template are:
-
-- Windows
-- Linux
-
-The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
-
-## Contribution
-
-All contributions are welcomed! If you have an idea to share or want to report a bug, please leave it as an issue or a pull request. We will try to respond to any commitment as quick as possible.
-
 # Project Structure
 
 **Flutter** creates cross-platform user interface using Dart while **Rust** handles the internal logic. The front-end and back-end are completely separated. These two worlds communicate through steams.
