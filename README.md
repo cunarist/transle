@@ -1,6 +1,6 @@
 # About This Template
 
-This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Just simply fork the template and you're ready to go!
+This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Simply fork this template and you're ready to go!
 
 The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
 
