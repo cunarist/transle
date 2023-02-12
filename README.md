@@ -1,8 +1,8 @@
 # About This Template
 
-> You can remove this section after you've created your own forked repository.
+> You can remove this section after you've created your own repository.
 
-This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Simply fork this template and you're ready to go!
+This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Simply clone this template and you're ready to go!
 
 The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
 
@@ -14,7 +14,7 @@ Extra features from this template that are not included in original Flutter temp
 - Convenient environment variable management
 - Localization
 
-We recommend you to start a new project by forking this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
+We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
 
 ## Platform Support
 
@@ -33,13 +33,9 @@ Flutter creates cross-platform user interface using Dart while Rust handles the 
 
 # System Preparation
 
-Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures.
+Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures. Git is responsible for version-control and template update.
 
 You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
-
-## Preparing Python
-
-Download it from the app store if your system doesn't provide a pre-installed version. It's also available at [official downloads page](https://www.python.org/downloads/).
 
 ## Preparing Rust
 
@@ -51,11 +47,20 @@ Refer to the [official docs](https://docs.flutter.dev/get-started/install).
 
 Flutter docs also offer tutorials, samples, guidance on mobile development, and a full API reference. There are also many useful resources to read.
 
+## Preparing Git
+
+Go to the [official downloads page](https://git-scm.com/downloads)
+
+## Preparing Python
+
+Download it from the app store if your system doesn't provide a pre-installed version. It's also available at [official downloads page](https://www.python.org/downloads/).
+
 ## System Verification
 
 You can make sure if your system is ready for development in the terminal.
 
 ```
+git --version
 python --version
 rustc --version
 flutter doctor
@@ -92,9 +97,7 @@ Install Python packages written in `./requirements.txt` from [PyPI](https://pypi
 pip install -r requirements.txt
 ```
 
-Set the app name and domain.
-
-> This only works once. You cannot revert this.
+Set the app name and domain. This only works once and you cannot revert this.
 
 ```
 python automate naming
@@ -104,6 +107,12 @@ Convert product icon in `./assets` to make available in multiple platforms with 
 
 ```
 flutter pub run flutter_launcher_icons
+```
+
+Pull latest template updates from [Cunarist App Template](https://github.com/cunarist/app-template). This is currently experimental.
+
+```
+python automate template
 ```
 
 # Actual Development
@@ -168,7 +177,7 @@ If the characteristic of a specific Rust API is totally different from other Rus
 
 ## Python Automation Scripts
 
-Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation.
+For faster and easier development, Cunarist App Template relies on Python scripts in `./automate` for automation.
 
 Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
 

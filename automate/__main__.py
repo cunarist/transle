@@ -135,6 +135,17 @@ elif sys.argv[1]=="bridge":
     command += f" -d ./lib/bridge/bridge_generated.dart"
     os.system(command)
 
+elif sys.argv[1]=="template":
+
+    command = "git remote rm template"
+    os.system(command)
+    command = "git remote add template https://github.com/cunarist/app-template.git"
+    os.system(command)
+    command = "git fetch --all"
+    os.system(command)
+    command = "git merge template/main --allow-unrelated-histories"
+    os.system(command)
+
 else:
 
     print("No such option for automation is available.")
