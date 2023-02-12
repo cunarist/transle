@@ -57,7 +57,7 @@ Before you proceed, you need to prepare files for environment variables.
 This terminal command will generate environment variable files or update them from template files if they already exist.
 
 ```
-python ./automate/update_dev_config.py
+python automate configuration
 ```
 
 Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
@@ -86,7 +86,7 @@ Set the app name and domain.
 > This only works once. You cannot revert this.
 
 ```
-python ./automate/set_name_and_domain.py
+python automate naming
 ```
 
 Convert product icon in `./assets` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
@@ -160,8 +160,6 @@ If the characteristic of a specific Rust API is totally different from other Rus
 Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation.
 
 Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
-
-Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `# type: ignore` to suppress the warning.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
 
