@@ -34,7 +34,7 @@ All contributions are welcomed! If you have an idea to share or want to report a
 
 # Project Structure
 
-**Flutter** creates cross-platform user interface using Dart while **Rust** handles the internal logic. The front-end and back-end is entirely separated. These two worlds communicate through steams.
+**Flutter** creates cross-platform user interface using Dart while **Rust** handles the internal logic. The front-end and back-end are completely separated. These two worlds communicate through steams.
 
 This repository is based on [Cunarist App Template](https://github.com/cunarist/app-template). It is possible to receive latest updates from the template repository with the Python command stated below.
 
