@@ -1,7 +1,12 @@
 import os
 import sys
+import shutil
 from typing import Any
-import toml  # type:ignore
+import toml
+
+def exit():
+    print("")
+    sys.exit()
 
 def merge_dicts(d1: dict[Any, Any], d2: dict[Any, Any]) -> dict[Any, Any]:
     new: dict[Any, Any] = dict()
@@ -30,8 +35,7 @@ elif sys.argv[1]=="naming":
 
     # Check confirmation
     if confirm != "y":
-        print("")
-        sys.exit()
+        exit()
 
     # Set the app name
     lowercase_app_name = app_name.lower().replace(" ", "")
@@ -102,9 +106,37 @@ elif sys.argv[1]=="configuration":
     text += " in ./native/.cargo folder."
     print(text)
 
+elif sys.argv[1]=="bridge":
+
+    # Clear bridge folder
+    folderpath = f"./lib/bridge"
+    if os.path.exists(folderpath) and os.path.isdir(folderpath):
+        shutil.rmtree(folderpath)
+
+    # Generate ffi.dart file
+    os.makedirs(f"./lib/bridge", exist_ok=True)
+
+    filepath = "./automate/template/ffi.dart.txt"
+    with open(filepath, mode="r", encoding="utf8") as file:
+        template_text = file.read()
+
+    crate_name = "bridge"
+    output_text = template_text
+    output_text = output_text.replace("[[CRATE]]", crate_name)
+    class_name = crate_name.replace("_", " ").title().replace(" ", "")
+    output_text = output_text.replace("[[CLASS]]", class_name)
+
+    filepath = f"./lib/bridge/ffi.dart"
+    with open(filepath, mode="w", encoding="utf8") as file:
+        file.write(output_text)
+
+    command = "flutter_rust_bridge_codegen"
+    command += f" -r ./native/bridge/src/api.rs"
+    command += f" -d ./lib/bridge/bridge_generated.dart"
+    os.system(command)
+
 else:
 
     print("No such option for automation is available.")
 
-print("")
-sys.exit()
+exit()

@@ -1,24 +1,35 @@
-# Project Structure
+# About This Template
 
-This software is a combination of Flutter and Rust. Flutter creates cross-platform user interface using Dart. Rust handles the internal logic.
+This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Just simply fork the template and you're ready to go!
 
-This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
+The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
 
 Extra features from this template that are not included in original Flutter template are:
 
+- Rust integration with ability to use multiple library crates
+- State management with data on the Rust side
 - Convenient app naming and icon generation
 - Convenient environment variable management
-- Rust integration with ability to use multiple library crates
 - Localization
 
-# Platform Support
+We recommend you to start a new project by forking this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
+
+## Platform Support
 
 Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
+
+In the future, this template will support Windows, Linux, macOS, Android and iOS. Web is not on the list. Although Rust can be executed on the web via webassembly, there are so many limitations. The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
 
 Currently supported platforms in Cunarist App Template are:
 
 - Windows
 - Linux
+
+> You can remove this section after you've created your own forked repository.
+
+# Project Structure
+
+Flutter creates cross-platform user interface using Dart while Rust handles the internal logic. The front-end and back-end is entirely separated. These two worlds communicate through steams.
 
 # System Preparation
 
