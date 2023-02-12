@@ -15,7 +15,7 @@ Extra features from this template that are not included in original Flutter temp
 - Localization
 - Setting window properties on desktops
 
-We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
+We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to Cunarist App Template via Git.
 
 ## Platform Support
 
