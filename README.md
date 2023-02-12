@@ -15,18 +15,16 @@ Extra features from this template that are not included in original Flutter temp
 - Localization
 - Setting window properties on desktops
 
-We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to Cunarist App Template via Git.
-
 ## Platform Support
 
 Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
-
-In the future, this template will support Windows, Linux, macOS, Android and iOS. Web is not on the list. Although Rust can be executed on the web via webassembly, there are so many limitations. The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
 
 Currently supported platforms in Cunarist App Template are:
 
 - Windows
 - Linux
+
+In the future, this template will support Windows, Linux, macOS, Android and iOS. Web is not on the list. Although Rust can be executed on the web via webassembly, there are so many limitations. The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
 
 ## Contribution
 
