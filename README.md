@@ -129,13 +129,13 @@ These are the top-level files and folders that are allowed to edit during app de
 
 ### Dart Related
 
-- `lib`: Dart modules.
+- `lib`: Dart modules. Do not modify `bridge` folder inside it.
 - `pubspec.yaml`: Dart settings and dependencies.
 - `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
 
 ### Rust Related
 
-- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project.
+- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project. Do not modify `bridge` folder inside it.
 
 ## Comments
 

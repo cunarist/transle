@@ -3,8 +3,8 @@ name = "bridge"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
-flutter_rust_bridge = "1.62.0"
-
 [lib]
 crate-type = ["staticlib", "cdylib"]
+
+[dependencies]
+flutter_rust_bridge = { worspace = "true" }

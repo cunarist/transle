@@ -183,15 +183,12 @@ dependencies = [
 [[package]]
 name = "first_crate"
 version = "0.1.0"
-dependencies = [
- "flutter_rust_bridge",
-]
 
 [[package]]
 name = "flutter_rust_bridge"
-version = "1.62.1"
+version = "1.63.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0362439f3aed79a614d38f663228ada516ea667e743e516670943a1c2254d52"
+checksum = "405ab796a93ae8f696709a2b60e491587db791c65025098401369ce44ab8e2c3"
 dependencies = [
  "allo-isolate",
  "anyhow",
@@ -400,9 +397,6 @@ checksum = "ddccb15bcce173023b3fedd9436f882a0739b8dfb45e4f6b6002bee5929f61b2"
 [[package]]
 name = "second_crate"
 version = "0.1.0"
-dependencies = [
- "flutter_rust_bridge",
-]
 
 [[package]]
 name = "smallvec"
