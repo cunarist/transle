@@ -1,5 +1,7 @@
 [workspace]
-members = [
-    "first_crate",
-    "second_crate",
-]
+members = ["bridge", "first_crate", "second_crate"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace.dependencies]
+flutter_rust_bridge = { version = "1.63.1", features = ["worker-single"] }

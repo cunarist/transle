@@ -50,6 +50,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
 
 [[package]]
+name = "bridge"
+version = "0.1.0"
+dependencies = [
+ "flutter_rust_bridge",
+]
+
+[[package]]
 name = "build-target"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -165,17 +172,23 @@ dependencies = [
 ]
 
 [[package]]
-name = "first_crate"
-version = "0.1.0"
+name = "dart-sys"
+version = "4.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8d8b5680b5c2cc52f50acb2457d9b3a3b58adcca785db13a0e3655626f601de6"
 dependencies = [
- "flutter_rust_bridge",
+ "cc",
 ]
 
 [[package]]
+name = "first_crate"
+version = "0.1.0"
+
+[[package]]
 name = "flutter_rust_bridge"
-version = "1.59.0"
+version = "1.63.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee0b1f52e02ccd5337765560d35c57d466a12409e454849eeca9dc04a8cfca3a"
+checksum = "405ab796a93ae8f696709a2b60e491587db791c65025098401369ce44ab8e2c3"
 dependencies = [
  "allo-isolate",
  "anyhow",
@@ -184,6 +197,7 @@ dependencies = [
  "cc",
  "chrono",
  "console_error_panic_hook",
+ "dart-sys",
  "flutter_rust_bridge_macros",
  "js-sys",
  "lazy_static",
@@ -383,9 +397,6 @@ checksum = "ddccb15bcce173023b3fedd9436f882a0739b8dfb45e4f6b6002bee5929f61b2"
 [[package]]
 name = "second_crate"
 version = "0.1.0"
-dependencies = [
- "flutter_rust_bridge",
-]
 
 [[package]]
 name = "smallvec"

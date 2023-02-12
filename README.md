@@ -1,34 +1,41 @@
-# Project Structure
+# About This Template
 
-This software is a combination of Flutter and Rust. Flutter creates cross-platform user interface using Dart. Rust handles the internal logic.
+> You can remove this section after you've created your own repository.
 
-This repository is a fork of `cunarist/app-template` repository on GitHub, which is based on default Flutter template with some additional packages and modifications applied to make sure everything is super-ready. Because this repository is basically a fork, it can receive latest updates applied to `cunarist/app-template` via Git.
+This template provides instant capabilities to developers who want to embrace the power of `Rust` and `Flutter` together. Simply clone this template and you're ready to go!
+
+The structure is based on default Flutter template and includes additional packages and modifications applied to make sure everything is super-ready.
 
 Extra features from this template that are not included in original Flutter template are:
 
+- Rust integration with ability to use multiple library crates
+- State management with data on the Rust side
 - Convenient app naming and icon generation
 - Convenient environment variable management
-- Rust integration with ability to use multiple library crates
 - Localization
 
-# Platform Support
+We recommend you to start a new project by cloning this repository instead of copying it. By doing so, the project can receive latest updates applied to `cunarist/app-template` via Git.
+
+## Platform Support
 
 Dart and Rust support a variety of platforms: Windows, Linux, macOS, Android, iOS and web. However, Cunarist App Template is not yet mature enough to support all of those, though it has enough potential to do so in the future.
+
+In the future, this template will support Windows, Linux, macOS, Android and iOS. Web is not on the list. Although Rust can be executed on the web via webassembly, there are so many limitations. The goal of this template is to enable full power of Rust while using Flutter for front-end development. In other words, even if you take Rust crates somewhere else, they should still be able to work without GUI.
 
 Currently supported platforms in Cunarist App Template are:
 
 - Windows
 - Linux
 
+# Project Structure
+
+Flutter creates cross-platform user interface using Dart while Rust handles the internal logic. The front-end and back-end is entirely separated. These two worlds communicate through steams.
+
 # System Preparation
 
-Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures.
+Flutter and Rust are required for building the app itself. Python is needed to automate complicated procedures. Git is responsible for version-control and template update.
 
 You can use an IDE of your choice. However, [Visual Studio Code](https://code.visualstudio.com/) is recommended because it has extensive support from Flutter and Rust communities.
-
-## Preparing Python
-
-Go to the [official downloads page](https://www.python.org/downloads/) if your system doesn't provide a pre-installed version. Make sure Python installation is incldued in `PATH` environment variable.
 
 ## Preparing Rust
 
@@ -40,21 +47,24 @@ Refer to the [official docs](https://docs.flutter.dev/get-started/install).
 
 Flutter docs also offer tutorials, samples, guidance on mobile development, and a full API reference. There are also many useful resources to read.
 
+## Preparing Git
+
+Go to the [official downloads page](https://git-scm.com/downloads)
+
+## Preparing Python
+
+Download it from the app store if your system doesn't provide a pre-installed version. It's also available at [official downloads page](https://www.python.org/downloads/).
+
 ## System Verification
 
 You can make sure if your system is ready for development in the terminal.
 
 ```
+git --version
 python --version
 rustc --version
 flutter doctor
 ```
-
-# Bridge Generator
-
-This template uses Dart and Rust. Using multiple programming languages means that we need to establish a bridge between them. [Flutter Rust Bridge](https://pub.dev/packages/flutter_rust_bridge) is a tool dedicated for this purpose.
-
-You need to install extra dependencies for Flutter Rust Bridge. Refer to the [official docs](https://cjycode.com/flutter_rust_bridge/integrate/deps.html).
 
 # Environment Variables
 
@@ -63,7 +73,7 @@ Before you proceed, you need to prepare files for environment variables.
 This terminal command will generate environment variable files or update them from template files if they already exist.
 
 ```
-python ./automate/update_dev_config.py
+python automate configuration
 ```
 
 Files for environment variables are not version-controlled. You might be wondering why there are multiple files for managing environment variables. It's basically because this template combines multiple programming languages.
@@ -87,18 +97,22 @@ Install Python packages written in `./requirements.txt` from [PyPI](https://pypi
 pip install -r requirements.txt
 ```
 
-Set the app name and domain.
-
-> This only works once. You cannot revert this.
+Set the app name and domain. This only works once and you cannot revert this.
 
 ```
-python ./automate/set_name_and_domain.py
+python automate naming
 ```
 
 Convert product icon in `./assets` to make available in multiple platforms with [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons).
 
 ```
 flutter pub run flutter_launcher_icons
+```
+
+Receive latest updates from [Cunarist App Template](https://github.com/cunarist/app-template). This is currently experimental.
+
+```
+python automate template
 ```
 
 # Actual Development
@@ -109,14 +123,6 @@ Check if Rust crates in `./native` have any compilation error.
 
 ```
 cargo check --manifest-path ./native/Cargo.toml
-```
-
-Generate code that enables your Dart functions call Rust functions with [Flutter Rust Bridge](https://cjycode.com/flutter_rust_bridge/).
-
-> You must run this command after making any modification to Rust code in `./native`. If you don't, Dart cannot properly access Rust code and intellisense will not work. This makes additional `.rs` files in `./native` and `.dart` files in `./lib/bridge`. These generated files are not version-controlled.
-
-```
-python ./automate/generate_bridge.py
 ```
 
 Run the app in debug mode.
@@ -143,13 +149,13 @@ These are the top-level files and folders that are allowed to edit during app de
 
 ### Dart Related
 
-- `lib`: Dart modules.
+- `lib`: Dart modules. Do not modify `bridge` folder inside it.
 - `pubspec.yaml`: Dart settings and dependencies.
 - `.env.template`: Template of `.env` file. Includes environment variables that will be loaded in Dart.
 
 ### Rust Related
 
-- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project.
+- `native`: Rust crates. The name of the library crate folder should be exactly the same as that of library crate's name. `config.toml.template` file is also okay to be modified if it needed for the project. Do not modify `bridge` folder inside it.
 
 ## Comments
 
@@ -171,11 +177,9 @@ If the characteristic of a specific Rust API is totally different from other Rus
 
 ## Python Automation Scripts
 
-Due to limitations of dependencies and tools, Cunarist App Template relies heavily on Python scripts in `./automate` for automation.
+For faster and easier development, Cunarist App Template relies on Python scripts in `./automate` for automation.
 
 Although Python automation is convenient, if there comes a situation where dependencies get updated and therefore specialized automation is not needed anymore in some areas, it's best to switch to out-of-the-box features of those dependencies.
-
-Type hints should be provided for the maintainability of the code. Turn on strict type checking in whatever IDE you are using. If some third-party packages doesn't support type checking very well, then you can write `# type: ignore` to suppress the warning.
 
 [Black](https://black.readthedocs.io/en/stable/) formatter should be used for maintaining quality code.
 
